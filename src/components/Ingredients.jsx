@@ -8,7 +8,7 @@ import RecipesList from './RecipesList.jsx';
 const Ingredients = () => {
 
   const [selectedIngredients, setIngredients] = useState({});
-  const [ingredientsList] = useState(['Beans', 'Tofu', 'Tomatoes', 'Potatoes', 'Sweet Potatoes', 'Rice', 'Pasta', 'Tortillas', 'Bread', 'Bell Pepper', 'Cabbage', 'Broccoli', 'Cauliflower', 'Lettuce', 'Avocado', 'Chickpeas', 'Hummus', 'Squash', 'Carrots', 'Cucumbers', 'Nuts', 'Quinoa', 'Lentils', 'Plant Milk', 'Onions', 'Garlic']);
+  const [ingredientsList] = useState(['Beans', 'Tofu', 'Tomatoes', 'Potatoes', 'Sweet Potatoes', 'Rice', 'Pasta', 'Tortillas', 'Bread', 'Bell Peppers', 'Cabbage', 'Broccoli', 'Cauliflower', 'Lettuce', 'Avocado', 'Chickpeas', 'Hummus', 'Squash', 'Carrots', 'Cucumbers', 'Nuts', 'Quinoa', 'Lentils', 'Plant Milk', 'Onions', 'Garlic']);
   const [recipes, setRecipes] = useState(data.hits);
 
   let searchString = ''
@@ -46,9 +46,16 @@ const Ingredients = () => {
       <h4>Start by selecting the ingredients you have on hand</h4>
       <Grid container spacing={3}>
         {ingredientsList.map(ingredient => {
+          let imgUrl = `https://vegan-on-hand.s3.us-east-2.amazonaws.com/${ingredient.replace(/\s+/g, '-').toLowerCase()}.jpg`
           return (
             <Grid item xs={2}>
-              <Paper className='ingredient' onClick={toggleSelect}>{ingredient}</Paper>
+              <Paper
+                className='ingredient'
+                onClick={toggleSelect}
+                style={{
+                  'background': `url(${imgUrl}) no-repeat center center`,
+                  'background-size': 'cover'
+                }}>{ingredient}</Paper>
             </Grid>
           )
         })}
