@@ -1,0 +1,9 @@
+.ingredient {
+  text-align: center;
+}
+.ingredient.selected {
+  background:#86fd96;
+}
+.welcome {
+  text-align: center;
+}
