@@ -7,3 +7,7 @@
 .welcome {
   text-align: center;
 }
+.recipe-card {
+  max-width: 345px;
+  margin: 0 auto 40px;
+}
