@@ -1,0 +1,38 @@
+{
+  "name": "vegan-on-hand",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/index.js",
+    "dev": "webpack --mode development && node server/index.js",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lesc90/vegan-on-hand.git"
+  },
+  "keywords": [],
+  "author": "Leslie Crunkilton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lesc90/vegan-on-hand/issues"
+  },
+  "homepage": "https://github.com/lesc90/vegan-on-hand#readme",
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "express": "^4.17.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
+    "babel-loader": "^8.1.0",
+    "html-webpack-plugin": "^4.5.0",
+    "webpack": "^5.3.0",
+    "webpack-cli": "^4.1.0"
+  }
+}
