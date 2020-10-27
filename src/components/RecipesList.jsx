@@ -25,7 +25,7 @@ const RecipesList = (props) => {
                 </CardActionArea>
                 <CardActions>
                   <Button size="small" color="primary">
-                    See Recipe
+                    <a href={result.recipe.url} target="_blank">See Recipe</a>
                   </Button>
                 </CardActions>
               </Card>

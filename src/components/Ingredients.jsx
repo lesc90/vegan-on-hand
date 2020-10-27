@@ -53,9 +53,12 @@ const Ingredients = () => {
           )
         })}
       </Grid>
-      <Button color="primary" onClick={handleClick}>See Recipes</Button>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={handleClick}
+        className="see-recipes">See Recipes</Button>
       <RecipesList recipes={recipes} />
-
     </React.Fragment>
   )
 }
