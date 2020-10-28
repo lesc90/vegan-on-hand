@@ -8,14 +8,13 @@ import RecipesList from './RecipesList.jsx';
 
 const Ingredients = () => {
 
-  const [selectedIngredients, setIngredients] = useState({});
+  const [selectedIngredients, setIngredients] = useState([]);
   const [ingredientsList] = useState(ingredients);
   const [recipes, setRecipes] = useState(data.hits);
+  let searchString = '';
 
-  let searchString = ''
   let updateSearchString = () => {
-    let ingredients = Object.keys(selectedIngredients);
-    ingredients.forEach(item => {
+    selectedIngredients.forEach(item => {
       searchString += `${item.replace(/\s+/g, '-').toLowerCase()},`
     })
   }
@@ -25,7 +24,6 @@ const Ingredients = () => {
     let url = `https://api.edamam.com/search?q=${searchString}&app_id=${APP_ID}&app_key=${EDAMAM_API_KEY}&health=vegan`;
     axios.get(url)
       .then(result => {
-        console.log(result.data.hits)
         setRecipes(result.data.hits)
       })
       .catch(err => {
@@ -35,16 +33,25 @@ const Ingredients = () => {
 
   let toggleSelect = (e) => {
     e.target.classList.toggle('selected');
-    if (!selectedIngredients[e.target.innerText]) {
-      setIngredients(selectedIngredients, selectedIngredients[e.target.innerText] = true)
+    if (selectedIngredients.indexOf(e.target.innerText) === -1) {
+      setIngredients([...selectedIngredients, e.target.innerText])
     } else {
-      setIngredients(selectedIngredients, delete selectedIngredients[e.target.innerText])
+      let ingredientsCopy = [...selectedIngredients];
+      ingredientsCopy.splice(selectedIngredients.indexOf(e.target.innerText), 1);
+      setIngredients(ingredientsCopy)
     }
   }
 
   return (
     <React.Fragment>
       <h4>Start by selecting the ingredients you have on hand: </h4>
+      <ul>
+        {
+          selectedIngredients.map(ingredient => {
+            return <li>{ingredient}</li>;
+          })
+        }
+      </ul>
       <Grid container spacing={3}>
         {ingredientsList.map(ingredient => {
           let imgUrl = `https://vegan-on-hand.s3.us-east-2.amazonaws.com/${ingredient.replace(/\s+/g, '-').toLowerCase()}.jpg`
@@ -57,7 +64,7 @@ const Ingredients = () => {
                 style={{
                   'background': `url(${imgUrl}) no-repeat center center`,
                   'background-size': 'cover'
-                }}></Paper>
+                }}>{ingredient}</Paper>
             </Grid>
           )
         })}
