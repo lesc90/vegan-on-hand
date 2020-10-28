@@ -42,22 +42,47 @@ body {
 }
 .ingredients-sidebar {
   background: #c1d4cb;
-  padding: 16px;
+}
+.ingredients-sidebar > .MuiGrid-item {
+  width: 100%;
+}
+.ingredients-sidebar p {
+  padding: 0 17px;
+  color: #6f7d77;
 }
 .ingredients-sidebar h4 {
-  margin-top: 10px;
+  margin-top: 0;
+  background: #6095a2;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  text-align: center;
+  display: block;
+  color: #fff;
+  font-weight: 100;
 }
 .ingredients-sidebar ul {
   list-style: none;
   padding-left: 0;
+  padding: 0 20px;
 }
 .ingredients-sidebar ul li {
   margin-bottom: 10px;
+  position: relative;
+}
+span.close {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  transition: .25s;
+}
+span.close:hover {
+  color: #6095a2;
 }
 .welcome {
   text-align: center;
   display: block;
-  background: #546f63;
+  background: #6095a2;
   padding: 15px 10px;
   margin-top: 0;
   color: #fff;
@@ -70,7 +95,8 @@ body {
 }
 .see-recipes {
   display: block!important;
-  margin: 20px auto!important;
+  margin: 30px auto 30px!important;
+  font-size: 23px!important;
 }
 .card-ingredients ul {
   margin-left: 0;

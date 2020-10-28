@@ -42,28 +42,40 @@ const Ingredients = () => {
     }
   }
 
+  let handleClose = (e, index) => {
+    let ingredientsCopy = [...selectedIngredients];
+    ingredientsCopy.splice(index, 1);
+    setIngredients(ingredientsCopy);
+    let ingredients = document.querySelectorAll('.ingredient');
+    ingredients.forEach(item => {
+      if(item.innerText === selectedIngredients[index]) {
+        item.classList.toggle('selected');
+      }
+    })
+  }
+
   return (
     <React.Fragment>
       <h4>Start by selecting the ingredients you have on hand: </h4>
       <Grid container>
-        <Grid container sm={3} className="ingredients-sidebar">
+        <Grid container sm={2} className="ingredients-sidebar">
           <Grid item>
           <h4>Your selected ingredients</h4>
             { selectedIngredients.length
               ? <ul>
-                  {selectedIngredients.map(ingredient => {
-                    return <li>{ingredient}</li>;
+                  {selectedIngredients.map((ingredient, index) => {
+                    return <li>{ingredient}<span className="close" onClick={(e) => handleClose(e, index)}>X</span></li>;
                   })}
                 </ul>
               : <p>No ingredients selected</p>
             }
           </Grid>
         </Grid>
-        <Grid container sm={9} className="ingredients-grid">
+        <Grid container sm={10} className="ingredients-grid">
           {ingredientsList.map(ingredient => {
             let imgUrl = `https://vegan-on-hand.s3.us-east-2.amazonaws.com/${ingredient.replace(/\s+/g, '-').toLowerCase()}.jpg`
             return (
-              <Grid item xs={3} className='ingredient-wrapper'>
+              <Grid item xs={2} className='ingredient-wrapper'>
                 {ingredient}
                 <Paper
                   className='ingredient'
@@ -81,7 +93,7 @@ const Ingredients = () => {
         variant="contained"
         color="primary"
         onClick={handleClick}
-        className="see-recipes">See Recipes</Button>
+        className="see-recipes">See what you can make!</Button>
       <RecipesList recipes={recipes} />
     </React.Fragment>
   )

@@ -8,7 +8,7 @@ function App() {
   return (
     <React.Fragment>
       <h2 className="welcome">Vegan On Hand</h2>
-      <Container maxWidth="md">
+      <Container maxWidth="lg">
         <Ingredients />
       </Container>
     </React.Fragment>

@@ -12,7 +12,7 @@ import {
   Avatar,
   IconButton
 } from '@material-ui/core';
-import { Favorite, ExpandMore} from '@material-ui/icons';
+import { Favorite, ExpandMore, Share } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -70,6 +70,9 @@ const RecipesList = (props) => {
               <CardActions disableSpacing>
                 <IconButton aria-label="add to favorites">
                   <Favorite />
+                </IconButton>
+                <IconButton aria-label="share">
+                  <Share />
                 </IconButton>
                 <IconButton
                   className={clsx(classes.expand, {
