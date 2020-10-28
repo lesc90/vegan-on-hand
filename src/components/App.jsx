@@ -15,7 +15,6 @@ function App() {
 
   const handleFavorite = (e, result) => {
     setFavorites([...favorites, result])
-    // console.log('result', result)
   }
 
   return (
@@ -37,16 +36,19 @@ function App() {
 
           <Switch>
             <Route path="/favorites">
-              <Favorites favorites={favorites}/>
+              <Container maxWidth="lg">
+                <Favorites favorites={favorites}/>
+              </Container>
             </Route>
             <Route path="/">
-            <Container maxWidth="lg">
-              <Ingredients handleFavorite={handleFavorite}/>
-            </Container>
+              <Container maxWidth="lg">
+                <Ingredients handleFavorite={handleFavorite}/>
+              </Container>
             </Route>
           </Switch>
         </div>
       </Router>
+
     </React.Fragment>
   );
 }
