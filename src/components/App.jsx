@@ -9,7 +9,6 @@ import {
   Link
 } from "react-router-dom";
 
-
 function App() {
   const [favorites, setFavorites] = useState([]);
 

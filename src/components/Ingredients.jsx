@@ -4,8 +4,10 @@ import axios from 'axios';
 // import { EDAMAM_API_KEY, APP_ID } from '../config/edamam.js';
 import ingredients from '../data/ingredients.js';
 import RecipesList from './RecipesList.jsx';
+require('dotenv').config()
 const EDAMAM_API_KEY = process.env.EDAMAM_API_KEY;
 const APP_ID = process.env.APP_ID;
+
 
 const useStyles = makeStyles({
   root: {
