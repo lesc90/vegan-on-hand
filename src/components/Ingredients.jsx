@@ -45,29 +45,37 @@ const Ingredients = () => {
   return (
     <React.Fragment>
       <h4>Start by selecting the ingredients you have on hand: </h4>
-      <ul>
-        {
-          selectedIngredients.map(ingredient => {
-            return <li>{ingredient}</li>;
-          })
-        }
-      </ul>
-      <Grid container spacing={3}>
-        {ingredientsList.map(ingredient => {
-          let imgUrl = `https://vegan-on-hand.s3.us-east-2.amazonaws.com/${ingredient.replace(/\s+/g, '-').toLowerCase()}.jpg`
-          return (
-            <Grid item xs={2} className='ingredient-wrapper'>
-              {ingredient}
-              <Paper
-                className='ingredient'
-                onClick={toggleSelect}
-                style={{
-                  'background': `url(${imgUrl}) no-repeat center center`,
-                  'background-size': 'cover'
-                }}>{ingredient}</Paper>
-            </Grid>
-          )
-        })}
+      <Grid container>
+        <Grid container sm={3} className="ingredients-sidebar">
+          <Grid item>
+          <h4>Your selected ingredients</h4>
+            { selectedIngredients.length
+              ? <ul>
+                  {selectedIngredients.map(ingredient => {
+                    return <li>{ingredient}</li>;
+                  })}
+                </ul>
+              : <p>No ingredients selected</p>
+            }
+          </Grid>
+        </Grid>
+        <Grid container sm={9} className="ingredients-grid">
+          {ingredientsList.map(ingredient => {
+            let imgUrl = `https://vegan-on-hand.s3.us-east-2.amazonaws.com/${ingredient.replace(/\s+/g, '-').toLowerCase()}.jpg`
+            return (
+              <Grid item xs={3} className='ingredient-wrapper'>
+                {ingredient}
+                <Paper
+                  className='ingredient'
+                  onClick={toggleSelect}
+                  style={{
+                    'background': `url(${imgUrl}) no-repeat center center`,
+                    'background-size': 'cover'
+                  }}>{ingredient}</Paper>
+              </Grid>
+            )
+          })}
+        </Grid>
       </Grid>
       <Button
         variant="contained"
