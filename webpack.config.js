@@ -7,7 +7,7 @@ const htmlPlugin = new HtmlWebpackPlugin({
 });
 
 module.exports = {
-  watch: true,
+  // watch: true,
   entry: "./src/index.js",
   output: {
     path: path.join(__dirname, 'dist'),
