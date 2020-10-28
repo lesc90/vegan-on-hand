@@ -109,6 +109,10 @@ span.close:hover {
   font-weight: 100;
   font-size: 28px;
 }
+.welcome a {
+  text-decoration: none;
+  color: #fff;
+}
 .ingredients-header {
   color: #004c65;
   font-size: 21px;

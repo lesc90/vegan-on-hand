@@ -22,7 +22,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Ingredients = () => {
+const Ingredients = (props) => {
 
   const [selectedIngredients, setIngredients] = useState([]);
   const [ingredientsList] = useState(ingredients);
@@ -115,7 +115,7 @@ const Ingredients = () => {
         color="primary"
         onClick={handleClick}
         className="see-recipes">See what you can make!</Button>
-      <RecipesList recipes={recipes} />
+      <RecipesList recipes={recipes} handleFavorite={props.handleFavorite}/>
     </React.Fragment>
   )
 }

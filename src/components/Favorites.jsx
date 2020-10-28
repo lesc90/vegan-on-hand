@@ -35,10 +35,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const RecipesList = (props) => {
+const Favorites = (props) => {
   const classes = useStyles();
   const [selectedIndex, setSelectedIndex] = useState("");
-
   const handleExpandClick = (index) => {
     console.log(index)
     if(selectedIndex === index) {
@@ -47,12 +46,10 @@ const RecipesList = (props) => {
       setSelectedIndex(index);
     }
   };
-
   return (
-
     <Grid container spacing={3} className="recipe-wrapper">
-      { props.recipes.length
-        ? props.recipes.map((result, index) => {
+      { props.favorites.length
+        ? props.favorites.map((result, index) => {
           return (
           <Grid item xs={6} sm={4}>
 
@@ -71,7 +68,7 @@ const RecipesList = (props) => {
               <CardContent>
               </CardContent>
               <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites" onClick={(e) => props.handleFavorite(e, result)}>
+                <IconButton aria-label="add to favorites">
                   <Favorite />
                 </IconButton>
                 <IconButton aria-label="share">
@@ -107,8 +104,7 @@ const RecipesList = (props) => {
         : <p>Select ingredients you have on hand to see what you make!</p>
       }
     </Grid>
-
-  );
+  )
 }
 
-export default RecipesList;
+export default Favorites;
