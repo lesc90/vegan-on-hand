@@ -14,7 +14,7 @@ const RecipesList = (props) => {
           </Grid>
           );
         })
-        : <p>Select ingredients you have on hand to see what you make!</p>
+        : <p>Select ingredients you have on hand to see what you can make!</p>
       }
     </Grid>
 

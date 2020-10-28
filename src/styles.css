@@ -100,18 +100,32 @@ span.close:hover {
   color: #6095a2;
 }
 .welcome {
-  text-align: center;
   display: block;
   background: #004c65;
   padding: 15px 10px;
   margin-top: 0;
+}
+.welcome h2 {
   color: #fff;
   font-weight: 100;
   font-size: 28px;
+  margin: 0;
+  display: inline-block;
 }
 .welcome a {
   text-decoration: none;
   color: #fff;
+}
+.welcome nav ul li {
+  display: inline-block;
+  margin-left: 20px;
+}
+.welcome nav {
+  float: right;
+}
+.welcome ul {
+  margin: 0;
+  line-height: 37px;
 }
 .ingredients-header {
   color: #004c65;

@@ -19,10 +19,11 @@ function App() {
 
   return (
     <React.Fragment>
-      <h2 className="welcome"><a href="/">Vegan On Hand</a></h2>
 
       <Router>
-        <div>
+      <header className="welcome">
+        <Container maxWidth="lg">
+          <h2><a href="/">Vegan On Hand</a></h2>
           <nav>
             <ul>
               <li>
@@ -33,7 +34,8 @@ function App() {
               </li>
             </ul>
           </nav>
-
+        </Container>
+      </header>
           <Switch>
             <Route path="/favorites">
               <Container maxWidth="lg">
@@ -46,7 +48,6 @@ function App() {
               </Container>
             </Route>
           </Switch>
-        </div>
       </Router>
 
     </React.Fragment>
