@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Grid, Button, Paper } from '@material-ui/core';
 import axios from 'axios';
 import { EDAMAM_API_KEY, APP_ID } from '../config/edamam.js';
-import data from '../data/dummyData.js';
 import ingredients from '../data/ingredients.js';
 import RecipesList from './RecipesList.jsx';
 
@@ -10,7 +9,7 @@ const Ingredients = () => {
 
   const [selectedIngredients, setIngredients] = useState([]);
   const [ingredientsList] = useState(ingredients);
-  const [recipes, setRecipes] = useState(data.hits);
+  const [recipes, setRecipes] = useState([]);
   let searchString = '';
 
   let updateSearchString = () => {
