@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Grid, Button, Paper } from '@material-ui/core';
 import axios from 'axios';
-import {EDAMAM_API_KEY, APP_ID } from '../config/edamam.js';
-import "../data/dummyData.js";
+import { EDAMAM_API_KEY, APP_ID } from '../config/edamam.js';
+import data from '../data/dummyData.js';
+import ingredients from '../data/ingredients.js';
 import RecipesList from './RecipesList.jsx';
 
 const Ingredients = () => {
 
   const [selectedIngredients, setIngredients] = useState({});
-  const [ingredientsList] = useState(['Beans', 'Tofu', 'Tomatoes', 'Potatoes', 'Sweet Potatoes', 'Rice', 'Pasta', 'Tortillas', 'Bread', 'Bell Peppers', 'Cabbage', 'Broccoli', 'Cauliflower', 'Lettuce', 'Avocado', 'Chickpeas', 'Hummus', 'Squash', 'Carrots', 'Cucumbers', 'Nuts', 'Quinoa', 'Lentils', 'Plant Milk', 'Onions', 'Garlic']);
+  const [ingredientsList] = useState(ingredients);
   const [recipes, setRecipes] = useState(data.hits);
 
   let searchString = ''
@@ -43,19 +44,20 @@ const Ingredients = () => {
 
   return (
     <React.Fragment>
-      <h4>Start by selecting the ingredients you have on hand</h4>
+      <h4>Start by selecting the ingredients you have on hand: </h4>
       <Grid container spacing={3}>
         {ingredientsList.map(ingredient => {
           let imgUrl = `https://vegan-on-hand.s3.us-east-2.amazonaws.com/${ingredient.replace(/\s+/g, '-').toLowerCase()}.jpg`
           return (
-            <Grid item xs={2}>
+            <Grid item xs={2} className='ingredient-wrapper'>
+              {ingredient}
               <Paper
                 className='ingredient'
                 onClick={toggleSelect}
                 style={{
                   'background': `url(${imgUrl}) no-repeat center center`,
                   'background-size': 'cover'
-                }}>{ingredient}</Paper>
+                }}></Paper>
             </Grid>
           )
         })}

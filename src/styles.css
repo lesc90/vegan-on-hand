@@ -5,7 +5,7 @@ body {
   margin: 0;
   padding: 0;
 }
-.ingredient {
+.ingredient.MuiPaper-rounded {
   text-align: center;
   cursor: pointer;
   padding: 20px;
@@ -15,10 +15,17 @@ body {
   height: 75px;
   display: block;
   background-color: #b8d0c6!important;
+  border-radius: 100%;
+  margin: 10px auto 0;
+}
+.ingredient-wrapper {
+  font-size: 11px;
+  text-align: center;
+  background: #e2e2e2;
 }
 .ingredient.selected {
-  background-color: #ccffd3!important;
   box-shadow: 0px 1px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 0px 0px rgba(0,0,0,0.12);
+  opacity: .75;
 }
 .welcome {
   text-align: center;
@@ -37,4 +44,12 @@ body {
 .see-recipes {
   display: block!important;
   margin: 20px auto!important;
+}
+.card-ingredients ul {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+}
+.card-ingredients ul li {
+  margin-bottom: 6px;
 }

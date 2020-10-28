@@ -1,4 +1,4 @@
-data = {
+const data = {
   "q": "beans,rice,",
   "from": 0,
   "to": 10,
@@ -6905,3 +6905,5 @@ data = {
       }
   ]
 }
+
+export default data;
