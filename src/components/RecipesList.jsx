@@ -50,16 +50,19 @@ const RecipesList = (props) => {
 
   return (
 
-    <Grid container spacing={3}>
+    <Grid container spacing={3} className="recipe-wrapper">
       { props.recipes.length
         ? props.recipes.map((result, index) => {
           return (
-          <Grid item xs={4}>
+          <Grid item xs={6} sm={4}>
+
             <Card className={classes.root}>
-              <CardHeader
-                title={result.recipe.label}
-                subheader={result.recipe.source}
-              />
+              <a href={result.recipe.url} target="_blank" className="card-link">
+                <CardHeader
+                  title={result.recipe.label}
+                  subheader={`See full recipe on ${result.recipe.source}`}
+                />
+              </a>
               <CardMedia
                 className={classes.media}
                 image={result.recipe.image}
@@ -101,7 +104,7 @@ const RecipesList = (props) => {
           </Grid>
           );
         })
-        : <p>Select ingredients</p>
+        : <p>Select ingredients you have on hand to see what you make!</p>
       }
     </Grid>
 

@@ -1,9 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { Grid, Button, Paper } from '@material-ui/core';
+import { Grid, Button, Paper, makeStyles } from '@material-ui/core';
 import axios from 'axios';
 import { EDAMAM_API_KEY, APP_ID } from '../config/edamam.js';
 import ingredients from '../data/ingredients.js';
 import RecipesList from './RecipesList.jsx';
+
+const useStyles = makeStyles({
+  root: {
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    borderRadius: 3,
+    border: 0,
+    color: 'white',
+    height: 48,
+    padding: '0 30px',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    outline: '1px solid #fff',
+    outlineOffset: '-4px'
+  },
+  label: {
+    textTransform: 'capitalize',
+  },
+});
 
 const Ingredients = () => {
 
@@ -11,16 +28,17 @@ const Ingredients = () => {
   const [ingredientsList] = useState(ingredients);
   const [recipes, setRecipes] = useState([]);
   let searchString = '';
+  const classes = useStyles();
 
   let updateSearchString = () => {
     selectedIngredients.forEach(item => {
-      searchString += `${item.replace(/\s+/g, '-').toLowerCase()},`
+      searchString += `${item.replace(/\s+/g, '-').toLowerCase()}+`
     })
   }
 
   let handleClick = () => {
     updateSearchString()
-    let url = `https://api.edamam.com/search?q=${searchString}&app_id=${APP_ID}&app_key=${EDAMAM_API_KEY}&health=vegan`;
+    let url = `https://api.edamam.com/search?q=${searchString}&app_id=${APP_ID}&app_key=${EDAMAM_API_KEY}&health=vegan&to=15`;
     axios.get(url)
       .then(result => {
         setRecipes(result.data.hits)
@@ -55,9 +73,9 @@ const Ingredients = () => {
 
   return (
     <React.Fragment>
-      <h4>Start by selecting the ingredients you have on hand: </h4>
+      <h4 className="ingredients-header">Select the ingredients you have on hand: </h4>
       <Grid container>
-        <Grid container sm={2} className="ingredients-sidebar">
+        <Grid container md={2} className="ingredients-sidebar">
           <Grid item>
           <h4>Your selected ingredients</h4>
             { selectedIngredients.length
@@ -70,18 +88,18 @@ const Ingredients = () => {
             }
           </Grid>
         </Grid>
-        <Grid container sm={10} className="ingredients-grid">
-          {ingredientsList.map(ingredient => {
+        <Grid container md={10} className="ingredients-grid">
+          {ingredientsList.map((ingredient, index) => {
             let imgUrl = `https://vegan-on-hand.s3.us-east-2.amazonaws.com/${ingredient.replace(/\s+/g, '-').toLowerCase()}.jpg`
             return (
-              <Grid item xs={2} className='ingredient-wrapper'>
+              <Grid item md={2} sm={3} xs={4} className='ingredient-wrapper' key={index}>
                 {ingredient}
                 <Paper
                   className='ingredient'
                   onClick={toggleSelect}
                   style={{
                     'background': `url(${imgUrl}) no-repeat center center`,
-                    'background-size': 'cover'
+                    'backgroundSize': 'cover'
                   }}>{ingredient}</Paper>
               </Grid>
             )
@@ -89,6 +107,10 @@ const Ingredients = () => {
         </Grid>
       </Grid>
       <Button
+        classes={{
+          root: classes.root,
+          label: classes.label,
+        }}
         variant="contained"
         color="primary"
         onClick={handleClick}
