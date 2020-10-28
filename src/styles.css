@@ -31,22 +31,14 @@ body:after {
   text-align: center;
   margin-bottom: 20px!important;
 }
-.ingredient {
+.ingredient.MuiPaper-rounded {
   text-indent: -10000000px;
   overflow: hidden;
   opacity: .8;
-}
-.ingredient:hover {
-  transition: .25s;
-  opacity: 1;
-}
-.ingredient.MuiPaper-rounded {
   text-align: center;
   cursor: pointer;
   padding: 20px;
-  border-radius: 100%;
   font-size: 14px;
-  max-width: 75px;
   height: 75px;
   display: block;
   outline: 1px solid #fff;
@@ -54,17 +46,29 @@ body:after {
   border-radius: 0;
   margin: 4px auto 0;
 }
+.MuiIconButton-root.active svg {
+  fill: #ff6a58;
+}
+.paper-wrapper:hover .ingredient.MuiPaper-rounded {
+  transition: .25s;
+  opacity: 1;
+}
+.paper-wrapper {
+  background: #a75600;
+  margin: 10px;
+}
 .ingredient.selected {
   box-shadow: 0px 1px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 0px 0px rgba(0,0,0,0.12);
   opacity: 1;
-  outline: none;
-  border-radius: 20px;
+  outline: 2px solid #ff6a58;
+  outline-offset: 0;
 }
 .ingredients-sidebar {
   background: #f1f1f1;
 }
 .ingredients-sidebar > .MuiGrid-item {
   width: 100%;
+  border: 2px solid #ff6a58;
 }
 .ingredients-sidebar p {
   padding: 0 17px;
@@ -72,7 +76,7 @@ body:after {
 }
 .ingredients-sidebar h4 {
   margin-top: 0;
-  background: #c7c7c7;
+  background: #ff6a58;
   padding-top: 10px;
   padding-bottom: 10px;
   width: 100%;

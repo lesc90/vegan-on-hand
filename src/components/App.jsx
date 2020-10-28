@@ -14,7 +14,16 @@ function App() {
   const [favorites, setFavorites] = useState([]);
 
   const handleFavorite = (e, result) => {
-    setFavorites([...favorites, result])
+    e.currentTarget.classList.toggle('active');
+    if(favorites.indexOf(result) === -1) {
+      setFavorites([...favorites, result]);
+      console.log('added a favorite', favorites)
+    } else {
+      let favCopy = [...favorites];
+      favCopy.splice(favorites.indexOf(result), 1);
+      setFavorites(favCopy)
+      console.log('removed a favorite', favorites)
+    }
   }
 
   return (
@@ -23,7 +32,7 @@ function App() {
       <Router>
       <header className="welcome">
         <Container maxWidth="lg">
-          <h2><a href="/">Vegan On Hand</a></h2>
+          <h2><Link to="/">Vegan On Hand</Link></h2>
           <nav>
             <ul>
               <li>

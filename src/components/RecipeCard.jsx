@@ -61,8 +61,11 @@ const RecipeCard = (props) => {
       <CardContent>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites"
-          onClick={props.handleFavorite ? (e) => props.handleFavorite(e, props.result) : ''}
+        <IconButton
+          aria-label="add to favorites"
+          onClick={props.handleFavorite
+            ? (e) => props.handleFavorite(e, props.result)
+            : ''}
         >
           <Favorite />
         </IconButton>

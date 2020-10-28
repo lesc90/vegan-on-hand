@@ -94,13 +94,15 @@ const Ingredients = (props) => {
             return (
               <Grid item md={2} sm={3} xs={4} className='ingredient-wrapper' key={index}>
                 {ingredient}
+                <div className="paper-wrapper">
                 <Paper
-                  className='ingredient'
                   onClick={toggleSelect}
+                  className='ingredient'
                   style={{
                     'background': `url(${imgUrl}) no-repeat center center`,
                     'backgroundSize': 'cover'
                   }}>{ingredient}</Paper>
+                </div>
               </Grid>
             )
           })}
