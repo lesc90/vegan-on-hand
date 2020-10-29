@@ -50,7 +50,6 @@ body:after {
   fill: #ff6a58;
 }
 .paper-wrapper:hover .ingredient.MuiPaper-rounded {
-  transition: .25s;
   opacity: 1;
 }
 .paper-wrapper {

@@ -8,5 +8,6 @@ node_modules/
 dist/
 
 # API keys
+.env
 src/config/edamam.js
 dist/config/edamam.js
