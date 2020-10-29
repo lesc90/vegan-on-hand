@@ -45,6 +45,7 @@ body:after {
   outline-offset: -4px;
   border-radius: 0;
   margin: 4px auto 0;
+  transition: .25s;
 }
 .MuiIconButton-root.active svg {
   fill: #ff6a58;
