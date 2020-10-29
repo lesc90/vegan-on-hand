@@ -4,8 +4,8 @@ import axios from 'axios';
 import ingredients from '../data/ingredients.js';
 import RecipesList from './RecipesList.jsx';
 
-const EDAMAM_API_KEY = process.env.EDAMAM_API_KEY;
-const APP_ID = process.env.APP_ID;
+// const EDAMAM_API_KEY = process.env.EDAMAM_API_KEY;
+// const APP_ID = process.env.APP_ID;
 
 const useStyles = makeStyles({
   root: {
@@ -40,7 +40,7 @@ const Ingredients = (props) => {
 
   let handleClick = () => {
     updateSearchString()
-    let url = `https://api.edamam.com/search?q=${searchString}&app_id=${APP_ID}&app_key=${EDAMAM_API_KEY}&health=vegan&to=15`;
+    let url = `https://api.edamam.com/search?q=${searchString}&app_id=${process.env.APP_ID}&app_key=${process.env.EDAMAM_API_KEY}&health=vegan&to=15`;
     axios.get(url)
       .then(result => {
         setRecipes(result.data.hits)
