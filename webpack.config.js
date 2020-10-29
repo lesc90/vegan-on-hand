@@ -13,7 +13,9 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     filename: "[name].js"
   },
-  plugins: [htmlPlugin, new Dotenv()],
+  plugins: [htmlPlugin, new Dotenv({
+    path: path.resolve(__dirname, './.env')
+  })],
   module: {
     rules: [
       {
