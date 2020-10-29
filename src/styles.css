@@ -139,6 +139,13 @@ span.close:hover {
 .MuiCardHeader-title {
   font-size: 20px;
 }
+.MuiCardHeader-root:hover {
+  background: #fffbf9;
+  color: #ec7900;
+}
+.MuiCardHeader-root {
+  transition: .25s;
+}
 .card-link {
   color: initial;
   text-decoration: none;
