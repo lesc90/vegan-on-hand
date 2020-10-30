@@ -3,6 +3,7 @@ import { Grid, Button, Paper, makeStyles } from '@material-ui/core';
 import axios from 'axios';
 import ingredients from '../data/ingredients.js';
 import RecipesList from './RecipesList.jsx';
+import Config from '../../server/config';
 
 const useStyles = makeStyles({
   root: {
@@ -22,7 +23,6 @@ const useStyles = makeStyles({
 });
 
 const Ingredients = (props) => {
-
   const [selectedIngredients, setIngredients] = useState([]);
   const [ingredientsList] = useState(ingredients);
   const [recipes, setRecipes] = useState([]);
@@ -37,7 +37,7 @@ const Ingredients = (props) => {
 
   let handleClick = () => {
     updateSearchString()
-    let url = `https://api.edamam.com/search?q=${searchString}&app_id=${process.env.APP_ID}&app_key=${process.env.EDAMAM_API_KEY}&health=vegan&to=15`;
+    let url = `https://api.edamam.com/search?q=${searchString}&app_id=${Config.Config.APP_ID}&app_key=${Config.Config.EDAMAM_API_KEY}&health=vegan&to=15`;
     axios.get(url)
       .then(result => {
         setRecipes(result.data.hits)
