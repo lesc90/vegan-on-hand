@@ -38,6 +38,9 @@ function App() {
               <li>
                 <Link to="/favorites">Favorites</Link>
               </li>
+              <li>
+                <a href="https://github.com/lesc90/vegan-on-hand" target="_blank">View on Github</a>
+              </li>
             </ul>
           </nav>
         </Container>
