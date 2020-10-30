@@ -42,7 +42,7 @@ const Ingredients = (props) => {
         setRecipes(result.data.hits)
       })
       .catch(err => {
-        console.error(err)
+        console.error('Error getting recipes', err);
       })
   }
 

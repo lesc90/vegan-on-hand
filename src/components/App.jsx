@@ -16,12 +16,10 @@ function App() {
     e.currentTarget.classList.toggle('active');
     if(favorites.indexOf(result) === -1) {
       setFavorites([...favorites, result]);
-      console.log('added a favorite', favorites)
     } else {
       let favCopy = [...favorites];
       favCopy.splice(favorites.indexOf(result), 1);
-      setFavorites(favCopy)
-      console.log('removed a favorite', favorites)
+      setFavorites(favCopy);
     }
   }
 
