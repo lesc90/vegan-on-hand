@@ -1,22 +1,22 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const Dotenv = require('dotenv-webpack');
-
-const htmlPlugin = new HtmlWebpackPlugin({
-  template: "./src/index.html",
-  filename: "./index.html"
-});
+const webpack = require('webpack');
 
 module.exports = {
   entry: "./src/index.js",
-  mode: 'development',
+  mode: 'production',
   output: {
     path: path.join(__dirname, 'dist'),
     filename: "[name].js"
   },
-  plugins: [htmlPlugin, new Dotenv({
-    path: path.resolve(__dirname, './.env')
-  })],
+  plugins: [htmlPlugin,
+    new webpack.DefinePlugin({
+      'process.env': {
+         'EDAMAM_API_KEY': JSON.stringify(process.env.EDAMAM_API_KEY),
+         'APP_ID': JSON.stringify(process.env.APP_ID)
+      }
+    })
+  ]
   module: {
     rules: [
       {
@@ -36,4 +36,3 @@ module.exports = {
     ]
   }
 };
-
