@@ -16,7 +16,7 @@ module.exports = {
          'APP_ID': JSON.stringify(process.env.APP_ID)
       }
     })
-  ]
+  ],
   module: {
     rules: [
       {
