@@ -167,3 +167,15 @@ span.close:hover {
 .card-ingredients ul li {
   margin-bottom: 6px;
 }
+@media(max-width: 438px) {
+  .welcome ul {
+    padding-left: 0;
+  }
+  .welcome nav {
+    float: none;
+  }
+  .welcome nav ul li {
+    margin-right: 20px;
+    margin-left: 0;
+  }
+}
