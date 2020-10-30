@@ -8,5 +8,5 @@
 * [React Router](https://reactrouter.com/)
 * [Material-UI](https://material-ui.com/)
 * [Express](https://www.express.com/)
-* [Edamam Recipe API](https://www.express.com/)
-<div id="edamam-badge" data-color="white"></div>
+* [Edamam Recipe API](https://developer.edamam.com/)
+

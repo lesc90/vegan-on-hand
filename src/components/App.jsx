@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container } from '@material-ui/core';
 import Ingredients from './Ingredients.jsx';
 import Favorites from './Favorites.jsx';
+import Footer from './Footer.jsx';
 import {
   BrowserRouter as Router,
   Switch,
@@ -58,7 +59,7 @@ function App() {
             </Route>
           </Switch>
       </Router>
-
+    <Footer />
     </React.Fragment>
   );
 }

@@ -8,13 +8,13 @@ body {
 .recipe-wrapper {
   padding-bottom: 40px;
 }
-body:after {
-  width: 100%;
-  content: '';
-  position: absolute;
-  display: block;
+footer {
   height: 40px;
   background: #004c65;
+  padding: 20px;
+}
+div#edamam-badge {
+  text-align: right;
 }
 @media(min-width: 960px) {
   .ingredients-grid {
@@ -167,7 +167,7 @@ span.close:hover {
 .card-ingredients ul li {
   margin-bottom: 6px;
 }
-@media(max-width: 438px) {
+@media(max-width: 564px) {
   .welcome ul {
     padding-left: 0;
   }
