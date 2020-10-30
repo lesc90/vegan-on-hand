@@ -21,8 +21,7 @@ A React application that allows you to select ingredients you already have on ha
 * [Edamam Recipe API](https://developer.edamam.com/)
 
 ## Getting Started
-[Visit the app](https://vegan-on-hand.herokuapp.com/) or <br>
-Follow these steps to set up the project locally
+[Visit the app](https://vegan-on-hand.herokuapp.com/) or follow these steps to set up the project locally
 
 ### Installation
 1. Get a free API Key at [https://developer.edamam.com/](https://developer.edamam.com/)
@@ -49,5 +48,5 @@ npm run start
 ```
 
 ## Contact
-Leslie Crunkilton - lcrunkilton@gmail.com
+Leslie Crunkilton - lcrunkilton@gmail.com <br>
 Website link: [https://vegan-on-hand.herokuapp.com/](https://vegan-on-hand.herokuapp.com/)
